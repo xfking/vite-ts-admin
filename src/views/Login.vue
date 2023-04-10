@@ -42,6 +42,7 @@ import { ref } from "vue";
 // import { userStore } from "@/store/user";
 import { useRouter } from "vue-router";
 import { ElMessage } from "element-plus";
+import { setToken } from "@/utils/auth";
 
 // const store = userStore();
 const router = useRouter();
@@ -52,8 +53,9 @@ const INITIAL_DATA = {
 const formData = ref({ ...INITIAL_DATA });
 
 const onSubmit = () => {
-  // ElMessage.success("登录成功");
+  ElMessage.success("登录成功");
 
+  setToken('admin');
   router.push({ path: "/" });
   // store
   //   .login(formData.value)
